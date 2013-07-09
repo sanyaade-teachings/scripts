@@ -20,12 +20,12 @@ echo Cloning Git repository into temporary folder...
 git clone --no-checkout %PA_GIT_SERVER_HTTPS% %GIT_TEMP_FOLDER%
 
 if exist %GIT_TEMP_FOLDER% (
-echo Moving Git repository to root of Anarchy SDK folder..
-cd %GIT_TEMP_FOLDER%
-mv .git ..
-cd ..
+	echo Moving Git repository to root of Anarchy SDK folder..
+	cd %GIT_TEMP_FOLDER%
+	mv .git ..
+	cd ..
 
-git reset --hard HEAD
+	git reset --hard HEAD
 )
 
 echo Cleaning up temporary folder...

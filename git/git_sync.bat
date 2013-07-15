@@ -22,14 +22,24 @@ git clone --no-checkout %PA_GIT_SERVER_HTTPS% %GIT_TEMP_FOLDER%
 if exist %GIT_TEMP_FOLDER% (
 	echo Moving Git repository to root of Anarchy SDK folder..
 	cd %GIT_TEMP_FOLDER%
-	mv .git ..
+	attrib -H .git
+	move .git ..
 	cd ..
 
 	git reset --hard HEAD
-)
+) else ( goto giterror )
 
 echo Cleaning up temporary folder...
 if exist %GIT_TEMP_FOLDER% rmdir /q /s %GIT_TEMP_FOLDER%
 
+:gitfailure
+echo Git failure, make sure Git is installed and on your path
+echo See http://www.projectanarchy.com/git for more details
+goto end
+
+:success
 echo Finished syncing to newest source code!
+goto end
+
+:end
 pause

@@ -1,0 +1,5 @@
+/template/Bin/*
+/template/Assets/*
+/template/Data/*
+/build/_Packaged*
+/build/project_anarchy_android*
